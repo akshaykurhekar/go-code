@@ -10,7 +10,7 @@ import(
 
 func main(){
 	r := mux.NewRouter()
-	router.registerBookStoreRoute(r)
+	routes.RegisterBookStoreRoute(r)
 	http.Handle("/",r)
-	log.Fatal(http.ListenAndServe("localhost: 9010", r))
+	log.Fatal(http.ListenAndServe("localhost:9010", r))
 }

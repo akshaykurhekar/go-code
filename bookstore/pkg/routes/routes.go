@@ -5,10 +5,10 @@ import (
 	"github.com/akshay/bookstore/pkg/controller"
 )
 
-var registerBookStoreRoute = func(routes *mux.Router){
-	router.HandleFunc("/book/",controller.createBook).Method("POST")
-	router.HandleFunc("/book/",controller.getBook).Method("GET")
-	router.HandleFunc("/book/{bookId}",controller.getBookById).Method("GET")
-	router.HandleFunc("/book/{bookId}",controller.updateBook).Method("PUT")
-	router.HandleFunc("/book/{bookId}",controller.deleteBook).Method("DELETE")
+var RegisterBookStoreRoute = func(router *mux.Router){
+	router.HandleFunc("/book/",controller.CreateBook).Methods("POST")
+	router.HandleFunc("/book/",controller.GetBook).Methods("GET")
+	router.HandleFunc("/book/{bookId}",controller.GetBookById).Methods("GET")
+	router.HandleFunc("/book/{bookId}",controller.UpdateBook).Methods("PUT")
+	router.HandleFunc("/book/{bookId}",controller.DeleteBook).Methods("DELETE")
 } 

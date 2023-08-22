@@ -9,7 +9,7 @@ var db *gorm.DB
 
 // syntax to define struct in data base with this required field
 type Book struct {
-	gorm.model
+	gorm.Model
 	Name string `gorm:""json:"name"`
 	Author string `json:"author"`
 	Publication string `json:"publication"`
@@ -17,32 +17,32 @@ type Book struct {
 
 // init Database in mysql
 func init(){
-	config.connect()
-	db = config.getDB()
+	config.Connect()
+	db = config.GetDB()
 	db.AutoMigrate(&Book{})
 }
 
 //create book function in db
-func (b *Book) createBook() *Book {
+func (b *Book) CreateBook() *Book {
 	// this will create in entry in db using gorm
 	db.NewRecord(b) 
 	db.Create(&b)
 	return b
 }
 
-func getAllBook() []Book {
+func GetAllBook() []Book {
 	var Books []Book
 	db.Find(&Books)
 	return Books
 }
 
-func getBookById(Id int64) (*Book, *gorm.DB) {
+func GetBookById(Id int64) (*Book, *gorm.DB) {
 	var getBook Book
 	db := db.Where("ID=?",Id).Find(&getBook)
 	return &getBook, db
 }
 
-func deleteBook(Id int64) *Book{
+func DeleteBook(Id int64) Book{
 	var book Book
 	db.Where("ID=?",Id).Delete(book)
 	return book

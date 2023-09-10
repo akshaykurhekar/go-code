@@ -7,6 +7,7 @@ import(
 	"os"
 	"strconv"
 	"github.com/shomali11/slacker"
+	"github.com/joho/godotenv"
 )
 
 func printCommandEvents(analyticsChannel <-chan *slacker.CommandEvent){
@@ -21,8 +22,13 @@ func printCommandEvents(analyticsChannel <-chan *slacker.CommandEvent){
 }
 
 func main(){
-	os.Setenv("SLACK_BOT_TOKEN","xoxb-5779087348563-5810572203569-AUmflv9vAU2XRyNzYmsQknHL")
-	os.Setenv("SLACK_APP_TOKEN","xapp-1-A05PFSHDHQS-5810538775361-809eddf01856ffd52210bce4574d2904544e424dc347828ca677b9b28f86f03c")
+	err := godotenv.Load("key.env")
+	if err != nil {
+		log.Fatalf("Some error occured. Err: %s", err)
+	}
+
+	// os.Setenv("SLACK_BOT_TOKEN","xoxb-5779087348563-5810572203569-nTTNSZJsY9tWswd0rkbhrDDr")
+	// os.Setenv("SLACK_APP_TOKEN","xapp-1-A05PFSHDHQS-5859077653303-1196c9b72feb781181034b3c2ff269e634b0817b2d9c9e57f20d6b57513c3578")
 
 	bot := slacker.NewClient(os.Getenv("SLACK_BOT_TOKEN"),os.Getenv("SLACK_APP_TOKEN"))
 
@@ -47,8 +53,8 @@ func main(){
 	
 	defer cancel()
 
-	err := bot.Listen(ctx)
-	if err != nil{
-		log.Fatal(err)
+	err1 := bot.Listen(ctx)
+	if err1 != nil{
+		log.Fatal(err1)
 	}
 }

@@ -27,8 +27,8 @@ func main(){
 		log.Fatalf("Some error occured. Err: %s", err)
 	}
 
-	// os.Setenv("SLACK_BOT_TOKEN","xoxb-5779087348563-5810572203569-nTTNSZJsY9tWswd0rkbhrDDr")
-	// os.Setenv("SLACK_APP_TOKEN","xapp-1-A05PFSHDHQS-5859077653303-1196c9b72feb781181034b3c2ff269e634b0817b2d9c9e57f20d6b57513c3578")
+	// os.Setenv("SLACK_BOT_TOKEN","------")
+	// os.Setenv("SLACK_APP_TOKEN","------")
 
 	bot := slacker.NewClient(os.Getenv("SLACK_BOT_TOKEN"),os.Getenv("SLACK_APP_TOKEN"))
 

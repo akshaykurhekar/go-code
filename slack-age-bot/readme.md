@@ -1,3 +1,3 @@
-socket-token: xapp-1-A05PFSHDHQS-5810538775361-809eddf01856ffd52210bce4574d2904544e424dc347828ca677b9b28f86f03c
+socket-token:-------
 
-Bot User auth token: xoxb-5779087348563-5810572203569-AUmflv9vAU2XRyNzYmsQknHL
+Bot User auth token: ------
